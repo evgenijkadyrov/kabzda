@@ -6,9 +6,18 @@ import UncontrolledAccordion from "./components/UncontrolledAccordion/Uncontroll
 import {UncontrolledRatting} from "./components/UncontrolledRatting/UncontrolledRatting";
 import {Onoff} from "./components/Onoff/Onoff";
 import {UncontroledOnoff} from "./components/Onoff/UncontroledOnoff";
-
+export type ItemsType={
+    title:string,value:any
+}
 function App() {
     console.log('App rendering')
+    let items:Array<ItemsType>=[
+        {title:'Dimych',value:1},
+        {title:'Victor',value:2},
+        {title:'Misha',value:3},
+        {title:'Igor',value:4},
+        {title:'Vera',value:5},
+    ]
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState(true)
@@ -21,14 +30,14 @@ function App() {
             {/*<UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Contact'}/>*/}
             <Accordion titleValue={'Menu'} collapsed={accordionCollapsed}
-                       callback={() => setAccordionCollapsed(!accordionCollapsed)}/>
+                       callback={() => setAccordionCollapsed(!accordionCollapsed)} items={items}/>
             <Accordion titleValue={'Contact'} collapsed={accordionCollapsed}
-                       callback={() => setAccordionCollapsed(!accordionCollapsed)}/>
+                       callback={() => setAccordionCollapsed(!accordionCollapsed)} items={items}/>
             {/*Article2*/}
-            <Ratting value={ratingValue} onClick={setRatingValue}/>
+            <Ratting value={ratingValue} onClick={setRatingValue} />
             <UncontrolledRatting/>
-            {/*<Onoff on={switchOn} onChange={setSwitchOn}/>*/}
-            <UncontroledOnoff callback={(on) => setSwitchOn(on)}/> {switchOn.toString()}
+            <Onoff on={switchOn} onChange={setSwitchOn}/>
+           {/* <UncontroledOnoff callback={(on) => setSwitchOn(on)}/> {switchOn.toString()}*/}
         </div>)
 
 }
