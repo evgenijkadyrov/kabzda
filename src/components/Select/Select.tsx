@@ -25,7 +25,7 @@ const [open, setOpen]=useState(false)
         <div className={'itemContainer'}>
             <div className='itemHeader' onClick={onClickHandler}>{props.value}  </div>
             {open && (<div className='itemList' >
-                {props.items.map((el,index) => <div    key={index} onClick={()=>onClickListItemHandler(el)}>{el}</div>)}
+                {props.items.map((el,index) => <div className={'itemListBlock'}   key={index} onClick={()=>onClickListItemHandler(el)}>{el}</div>)}
             </div>)}
         </div>
     )
