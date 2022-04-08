@@ -11,6 +11,7 @@ export type ItemsType = {
 
 }
 export const Select = (props: SelectType) => {
+    console.log('select')
     const [open, setOpen] = useState(false)
 const[hovered, setHovered]=useState(props.value)
     const selectedItem = props.items.find(el => el === props.value)
