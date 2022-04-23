@@ -16,10 +16,11 @@ const[time, setTime]=useState(new Date())
 
     useEffect(()=>{
 
-        setInterval(()=>{
+       const IntId= setInterval(()=>{
 
             setTime(new Date())
         },1000)
+        return ()=>{clearInterval(IntId)}
     },[])
 
 
